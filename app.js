@@ -16,3 +16,8 @@ let visits = [];
 
 app.get('/points', (req, res) => {
   res.json(points);
+
+  app.post('/points', (req, res) => {
+  const newPoint = { _id: Date.now().toString(), name: req.body.name };
+  points.push(newPoint);
+  res.status(201).json(newPoint);     
