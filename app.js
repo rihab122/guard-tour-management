@@ -39,3 +39,11 @@ app.delete('/points/:id', (req, res) => {
   visits = visits.filter(visit => visit.pointId !== req.params.id); // הסרת הביקורים המשויכים
   res.status(204).end();
 });   
+
+        app.get('/visits', (req, res) => {
+  const detailedVisits = visits.map(visit => ({
+    ...visit,
+    pointName: points.find(point => point._id === visit.pointId)?.name || "Unknown Point"
+  }));
+  res.json(detailedVisits);
+});
