@@ -13,3 +13,6 @@ app.get('/', (req, res) => {
 
 let points = [];
 let visits = [];
+
+app.get('/points', (req, res) => {
+  res.json(points);
