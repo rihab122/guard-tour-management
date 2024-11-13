@@ -157,3 +157,14 @@ async function addPoint() {
   }
 }
 
+async function editPoint(id) {
+  const newPointName = prompt('Edit Point Name:');
+  if (newPointName) {
+    await fetch(`${apiUrl}/points/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: newPointName })
+    });
+    fetchPoints(); // לעדכן את הרשימה לאחר העריכה
+  }
+}
