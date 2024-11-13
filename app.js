@@ -58,3 +58,6 @@ app.post('/visits', (req, res) => {
   visits.push(visit);
   res.status(201).json(visit);
 });
+
+  const PORT = 3053;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
