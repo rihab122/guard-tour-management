@@ -10,3 +10,6 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+let points = [];
+let visits = [];
