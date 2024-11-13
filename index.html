@@ -135,3 +135,10 @@ select {
 .points-list li:hover, .visits-list li:hover {
   background-color: #f1f1f1;
 }
+
+async function fetchPoints() {
+  const response = await fetch(${apiUrl}/points);
+  const data = await response.json();
+  updatePointsList(data);
+  updatePointSelect(data);
+}
