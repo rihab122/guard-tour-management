@@ -142,3 +142,18 @@ async function fetchPoints() {
   updatePointsList(data);
   updatePointSelect(data);
 }
+
+async function addPoint() {
+  const pointInput = document.getElementById('point-input');
+  const pointName = pointInput.value.trim();
+  if (pointName) {
+    await fetch(`${apiUrl}/points`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: pointName })
+    });
+    pointInput.value = '';
+    fetchPoints();
+  }
+}
+
