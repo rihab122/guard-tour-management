@@ -47,3 +47,14 @@ app.delete('/points/:id', (req, res) => {
   }));
   res.json(detailedVisits);
 });
+
+  
+app.post('/visits', (req, res) => {
+  const visit = {
+    _id: Date.now().toString(),
+    pointId: req.body.pointId,
+    timestamp: new Date().toLocaleString()
+  };
+  visits.push(visit);
+  res.status(201).json(visit);
+});
