@@ -21,3 +21,14 @@ app.get('/points', (req, res) => {
   const newPoint = { _id: Date.now().toString(), name: req.body.name };
   points.push(newPoint);
   res.status(201).json(newPoint);     
+});
+
+        app.put('/points/:id', (req, res) => {
+  const pointIndex = points.findIndex(point => point._id === req.params.id);
+  if (pointIndex !== -1) {
+    points[pointIndex].name = req.body.name; 
+    res.status(200).json(points[pointIndex]);
+  } else {
+    res.status(404).json({ message: 'Point not found' });
+  }
+});
