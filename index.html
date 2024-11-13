@@ -174,3 +174,16 @@ async function deletePoint(id) {
   fetchPoints();
   fetchVisits();
 }
+
+async function logVisit() {
+  const pointSelect = document.getElementById('point-select');
+  const pointId = pointSelect.value;
+  if (pointId) {
+    await fetch(`${apiUrl}/visits`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pointId })
+    });
+    fetchVisits();
+  }
+}
