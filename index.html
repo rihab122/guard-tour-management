@@ -168,3 +168,9 @@ async function editPoint(id) {
     fetchPoints(); // לעדכן את הרשימה לאחר העריכה
   }
 }
+
+async function deletePoint(id) {
+  await fetch(${apiUrl}/points/${id}, { method: 'DELETE' });
+  fetchPoints();
+  fetchVisits();
+}
