@@ -32,3 +32,10 @@ app.get('/points', (req, res) => {
     res.status(404).json({ message: 'Point not found' });
   }
 });
+
+     
+app.delete('/points/:id', (req, res) => {
+  points = points.filter(point => point._id !== req.params.id);
+  visits = visits.filter(visit => visit.pointId !== req.params.id); // הסרת הביקורים המשויכים
+  res.status(204).end();
+});   
