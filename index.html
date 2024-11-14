@@ -227,3 +227,8 @@ function updateVisitsList(visits) {
     visitsList.appendChild(li);
   });
 }
+
+window.onload = () => {
+  fetchPoints();
+  fetchVisits();
+};
