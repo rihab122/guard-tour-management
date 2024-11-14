@@ -217,3 +217,13 @@ function updatePointSelect(points) {
     pointSelect.appendChild(option);
   });
 }
+
+function updateVisitsList(visits) {
+  const visitsList = document.getElementById('visits-list');
+  visitsList.innerHTML = '';
+  visits.forEach(visit => {
+    const li = document.createElement('li');
+    li.textContent = ${visit.pointName} - ${visit.timestamp};
+    visitsList.appendChild(li);
+  });
+}
