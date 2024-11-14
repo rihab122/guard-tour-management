@@ -193,3 +193,16 @@ async function fetchVisits() {
   const data = await response.json();
   updateVisitsList(data);
 }
+function updatePointsList(points) {
+  const pointsList = document.getElementById('points-list');
+  pointsList.innerHTML = '';
+  points.forEach(point => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      ${point.name}
+      <button onclick="editPoint('${point._id}')">Edit</button>
+      <button onclick="deletePoint('${point._id}')">Delete</button>
+    `;
+    pointsList.appendChild(li);
+  });
+}
