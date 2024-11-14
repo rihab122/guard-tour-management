@@ -206,3 +206,14 @@ function updatePointsList(points) {
     pointsList.appendChild(li);
   });
 }
+
+function updatePointSelect(points) {
+  const pointSelect = document.getElementById('point-select');
+  pointSelect.innerHTML = '<option value="">Select Point</option>';
+  points.forEach(point => {
+    const option = document.createElement('option');
+    option.value = point._id;
+    option.textContent = point.name;
+    pointSelect.appendChild(option);
+  });
+}
