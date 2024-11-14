@@ -187,3 +187,9 @@ async function logVisit() {
     fetchVisits();
   }
 }
+
+async function fetchVisits() {
+  const response = await fetch(${apiUrl}/visits);
+  const data = await response.json();
+  updateVisitsList(data);
+}
